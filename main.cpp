@@ -21,6 +21,7 @@ int main(int argv, char** argc){
 
   //Read each file
   while (getline (cardFile1, line) && (line.length() > 0)){
+	Card cConv = convStrCard(line);
 
   }
   cardFile1.close();
