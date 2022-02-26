@@ -1,5 +1,5 @@
 //cards.h
-//Authors: Your name and your partner's name
+//Authors: Albert Yu (6603104)
 //All class declarations go here
 
 #ifndef CARDS_H

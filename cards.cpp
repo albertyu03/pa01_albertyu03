@@ -1,5 +1,5 @@
 //cards.cpp
-//Authors: Your name and your partner's name
+//Authors: Albert Yu (6603104)
 //Implementation of the classes defined in cards.h
 #include "cards.h"
 #include "utility.h"
