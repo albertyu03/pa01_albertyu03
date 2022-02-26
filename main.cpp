@@ -45,13 +45,14 @@ int main(int argv, char** argc){
   //swap turns
   //print final hands
   int curTurn = 0; //0 for alice, 1 for bob
+  int iterCount = 1;
   while(alice.count() != 0 && bob.count() != 0) {
+    iterCount++;
     bool found = false;
-    if(curTurn == 0) { //alice's turn
+    if(curTurn == 1) { //alice's turn
       int cValue = alice.getLeast();
       
-      for(int i = 0; i < alice.count(); i++) {
-	cout << ConvCardStr(cValue) << endl;
+      for(int i = 0; i < alice.count(); i++) { // iterate through hand count
         if(bob.contains(cValue)) {
           found = true;
           bob.remove(cValue);
@@ -61,13 +62,34 @@ int main(int argv, char** argc){
         }
         cValue = alice.getSuccessor(cValue);
       }
-    } /*else {
-      
-    }*/
-    break;
-    if(found == false) { //no matches found
-      //print
+    } else { // bob's turn
+      int cValue = bob.getGreatest();
+
+      for(int i = 0; i < bob.count(); i++) {
+        if(alice.contains(cValue)) {
+          found = true;
+          bob.remove(cValue);
+          alice.remove(cValue);
+          cout << "Bob picked matching card " << ConvCardStr(cValue) << endl;
+          break;
+        }
+        cValue = bob.getPredecessor(cValue);
+      }
+    }
+    curTurn = curTurn * (-1); // swap turns
+    if(found == false) { //no matches found --> game is over
+      break;
+    }
+    if(iterCount == 100) { //infinite loop check
+      cout << "infinite loop? itercount > 100" << endl;
+      break;
     }
   }
+  //game over: print both hands
+  cout << "Alice's cards:" << endl;
+  alice.printInOrder();
+  cout << endl << "Bob's cards:" << endl;
+  bob.printInOrder();
+  
   return 0;
 }

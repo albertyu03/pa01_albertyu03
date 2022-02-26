@@ -2,7 +2,7 @@
 //Authors: Your name and your partner's name
 //Implementation of the classes defined in cards.h
 #include "cards.h"
-
+#include "utility.h"
 #include <iostream>
 using std::cout;
 
@@ -82,7 +82,7 @@ void Cards::printInOrder(Node *n) const {
     if(n->left != NULL) {
     	printInOrder(n->left);
     }
-    cout << n->info << " ";
+    cout << ConvCardStr(n->info) << endl;
     if(n->right != NULL) {
     	printInOrder(n->right);
     }
