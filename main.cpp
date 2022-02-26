@@ -36,7 +36,7 @@ int main(int argv, char** argc){
     bob.insert(cConv);
   }
   cardFile2.close();
-  
+  cout << "passed!" << endl; 
   
   return 0;
 }

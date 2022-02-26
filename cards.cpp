@@ -299,7 +299,3 @@ bool Cards::remove(int value){
     }
     return true;
 }
-
-int main() {
-  cout << "hello world";
-}

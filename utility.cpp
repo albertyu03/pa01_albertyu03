@@ -31,6 +31,3 @@ int ConvStrCard(string str) {
 }
 
 
-int main() {
-  cout << "hello world";
-}
