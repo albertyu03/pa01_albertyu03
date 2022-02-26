@@ -265,7 +265,7 @@ bool Cards::remove(int value){
 		nPar->right = NULL;
 	}
     } else if(n->left == NULL || n->right == NULL) { //case 2: internal with one child
-    	if(n->parent == NULL) {
+    	if(n->parent == NULL) { //no parent
 		if(n->left != NULL) {
 			root = n->left;
 			root->parent = NULL;
@@ -274,9 +274,10 @@ bool Cards::remove(int value){
 			root->parent = NULL;
 		}
 		delete n;
+		return true;
 	}
-	Node* nPar = n->parent;
-	Node* nChi;
+	Node* nPar = n->parent; //has parent
+	Node* nChi; //its child
 	if(n->left != NULL) {
 		nChi = n->left;
 	} else {
@@ -289,6 +290,7 @@ bool Cards::remove(int value){
 		nPar->right = nChi;
 		delete n;
 	}
+	nChi->parent = nPar;
 
     } else { //case 3: internal with 2 children
     	Node* nSuc = getSuccessorNode(n->info);

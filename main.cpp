@@ -25,7 +25,8 @@ int main(int argv, char** argc){
   Cards alice, bob;
   //Read each file
   while (getline (cardFile1, line) && (line.length() > 0)){
-	  int cConv = ConvStrCard(line);
+    int cConv = ConvStrCard(line);
+    cout << line << ">>>>" << ConvStrCard(line) << endl;
     alice.insert(cConv);
   }
   cardFile1.close();
@@ -37,23 +38,21 @@ int main(int argv, char** argc){
   }
   cardFile2.close();
 
-
+  
   //the game: your turn -> iterate through cards
   //Alice --> least to greatest
   //Bob --> greatest to least
   //pick first matching card and then remove (and print card)
   //swap turns
   //print final hands
-  int curTurn = 0; //0 for alice, 1 for bob
+  int curTurn = 1; //0 for alice, 1 for bob
   int iterCount = 1;
   while(alice.count() != 0 && bob.count() != 0) {
-    iterCount++;
     bool found = false;
     if(curTurn == 1) { //alice's turn
       int cValue = alice.getLeast();
-      
       for(int i = 0; i < alice.count(); i++) { // iterate through hand count
-        if(bob.contains(cValue)) {
+	if(bob.contains(cValue)) {
           found = true;
           bob.remove(cValue);
           alice.remove(cValue);
@@ -78,18 +77,16 @@ int main(int argv, char** argc){
     }
     curTurn = curTurn * (-1); // swap turns
     if(found == false) { //no matches found --> game is over
-      break;
+	break;
     }
-    if(iterCount == 100) { //infinite loop check
-      cout << "infinite loop? itercount > 100" << endl;
-      break;
-    }
+    
   }
   //game over: print both hands
+  
   cout << "Alice's cards:" << endl;
   alice.printInOrder();
   cout << endl << "Bob's cards:" << endl;
   bob.printInOrder();
-  
+
   return 0;
 }
