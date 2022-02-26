@@ -6,5 +6,5 @@ using namespace std;
 
 
 int ConvStrCard(string str);
-
+string ConvCardStr(int value);
 #endif

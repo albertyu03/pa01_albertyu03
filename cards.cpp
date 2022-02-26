@@ -6,7 +6,6 @@
 #include <iostream>
 using std::cout;
 
-
 // constructor sets up empty tree
 Cards::Cards() : root(0) { }
 
@@ -298,4 +297,19 @@ bool Cards::remove(int value){
 	n->info = sucInf;
     }
     return true;
+}
+
+int Cards::getGreatest() const {
+  Node *cNode = root;
+  while(cNode->right != NULL) {
+    cNode = cNode->right;
+  }
+  return cNode->info;
+}
+int Cards::getLeast() const {
+  Node *cNode = root;
+  while(cNode->left != NULL) {
+    cNode = cNode->left;
+  }
+  return cNode->info;
 }

@@ -36,7 +36,36 @@ int main(int argv, char** argc){
     bob.insert(cConv);
   }
   cardFile2.close();
-  cout << "passed!" << endl; 
-  
+
+
+  //the game: your turn -> iterate through cards
+  //Alice --> least to greatest
+  //Bob --> greatest to least
+  //pick first matching card and then remove (and print card)
+  //swap turns
+  //print final hands
+  int curTurn = 0; //0 for alice, 1 for bob
+  while(alice.count() != 0 && bob.count() != 0) {
+    bool found = false;
+    if(curTurn == 0) { //alice's turn
+      int cValue = alice.getLeast();
+      
+      for(int i = 0; i < alice.count(); i++) {
+        if(bob.contains(cValue)) {
+          found = true;
+          bob.remove(cValue);
+          alice.remove(cValue);
+          cout << "Alice picked matching card " << ConvCardStr(cValue) << endl;
+          break;
+        }
+        cValue = alice.getSuccessor(cValue);
+      }
+    } /*else {
+      
+    }*/
+    if(found == false) { //no matches found
+      //print
+    }
+  }
   return 0;
 }
