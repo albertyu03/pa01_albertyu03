@@ -51,6 +51,7 @@ int main(int argv, char** argc){
       int cValue = alice.getLeast();
       
       for(int i = 0; i < alice.count(); i++) {
+	cout << ConvCardStr(cValue) << endl;
         if(bob.contains(cValue)) {
           found = true;
           bob.remove(cValue);
@@ -63,6 +64,7 @@ int main(int argv, char** argc){
     } /*else {
       
     }*/
+    break;
     if(found == false) { //no matches found
       //print
     }
