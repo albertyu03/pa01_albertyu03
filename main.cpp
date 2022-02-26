@@ -26,7 +26,6 @@ int main(int argv, char** argc){
   //Read each file
   while (getline (cardFile1, line) && (line.length() > 0)){
     int cConv = ConvStrCard(line);
-    cout << line << ">>>>" << ConvStrCard(line) << endl;
     alice.insert(cConv);
   }
   cardFile1.close();
