@@ -21,7 +21,7 @@ int ConvStrCard(string str) {
       cValue = i->second * 100;
     }
   }
-  map<char, int> values{ {'1', 1}, {'2', 2}, {'3', 3}, {'4', 4}, {'5', 5}, {'6', 6}, {'7', 7}, {'8', 8}, {'9', 9}, {'j', 11}, {'q', 12}, {'k', 13} };
+  map<char, int> values{ {'a', 1}, {'2', 2}, {'3', 3}, {'4', 4}, {'5', 5}, {'6', 6}, {'7', 7}, {'8', 8}, {'9', 9}, {'j', 11}, {'q', 12}, {'k', 13} };
   bool found = false;
   for(i = values.begin(); i != values.end(); i++) {
     if(b == i->first) {
@@ -47,7 +47,7 @@ string ConvCardStr(int value) {
       resultCard += i->first;
     }
   }
-  map<string, int> values{ {"1", 1}, {"2", 2}, {"3", 3}, {"4", 4}, {"5", 5}, {"6", 6}, {"7", 7}, {"8", 8}, {"9", 9}, {"10", 10}, {"j", 11}, {"q", 12}, {"k", 13} };
+  map<string, int> values{ {"a", 1}, {"2", 2}, {"3", 3}, {"4", 4}, {"5", 5}, {"6", 6}, {"7", 7}, {"8", 8}, {"9", 9}, {"10", 10}, {"j", 11}, {"q", 12}, {"k", 13} };
   map<string, int>::iterator j;
   for(j = values.begin(); j != values.end(); j++) {
     if(num == j->second) {

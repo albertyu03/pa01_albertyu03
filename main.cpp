@@ -81,7 +81,7 @@ int main(int argv, char** argc){
   }
   //game over: print both hands
   
-  cout << "Alice's cards:" << endl;
+  cout << endl << "Alice's cards:" << endl;
   alice.printInOrder();
   cout << endl << "Bob's cards:" << endl;
   bob.printInOrder();
