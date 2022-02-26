@@ -45,7 +45,6 @@ int main(int argv, char** argc){
   //swap turns
   //print final hands
   int curTurn = 1; //0 for alice, 1 for bob
-  int iterCount = 1;
   while(alice.count() != 0 && bob.count() != 0) {
     bool found = false;
     if(curTurn == 1) { //alice's turn
