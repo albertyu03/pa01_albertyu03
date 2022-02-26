@@ -2,19 +2,20 @@
 //Authors: Your name and your partner's name
 //All class declarations go here
 
-#ifndef INTBST_H
-#define INTBST_H
+#ifndef CARDS_H
+#define CARDS_H
 
 #include <iostream>
+#include "utility.h"
 
 using namespace std;
 
-class IntBST {
+class Cards {
 
  public:
     // ctor, dtor, insert and one print method already done in intbst.cpp:
-    IntBST();                   // constructor
-    ~IntBST();                  // destructor
+    Cards();                   // constructor
+    ~Cards();                  // destructor
     bool insert(int value);     // insert value; return false if duplicate
     void printPreOrder() const; // prints tree data pre-order to cout
 
@@ -33,19 +34,12 @@ class IntBST {
  private:
 
     struct Node {
-	Card info;
+	int info;
 	Node *left, *right, * parent;
 	// useful constructor:
     Node(int v=0) : info(v), left(0), right(0), parent(0) { }
     };
 
-    struct Card {
-	int suit; //clubs = 4, diamonds = 3, spades = 2, hearts = 1
-	int value;
-
-    //card operations
-    bool operator==(Card a, Card b);
-    bool operator>(Card a, Card b);
     // just one instance variable (pointer to root node):
     Node *root;
 
